@@ -15,7 +15,7 @@ app.use(cookieParser())
 app.use(
     cors({
         credentials : true,
-        origin : "https://mamarecipe.herokuapp.com"
+        origin : ["https://mamarecipe.herokuapp.com", "http://localhost:3000"]
     })
 )
 app.use(express.json())
