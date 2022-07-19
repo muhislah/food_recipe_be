@@ -15,8 +15,11 @@ app.use(cookieParser())
 app.use(
     cors({
         credentials: true,
-        origin: 'https://mamarecipe.herokuapp.com/',
-        sameSite : none
+        "origin": "*",
+        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204,
+        sameSite: none,
     })
 )
 app.use(express.json())
@@ -29,7 +32,7 @@ app.use('/profile', profileRouter)
 app.use((err, req, res, next) => {
     return response(res, [], 200, err.message)
 })
-app.use((req,res) => {
+app.use((req, res) => {
     return response(res, [], 300, 'PAGE NOT FOUND')
 })
 
