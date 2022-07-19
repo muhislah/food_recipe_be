@@ -52,7 +52,7 @@ module.exports.loginUser = async (req, res, next) => {
             token: await generateAccessToken(email, id_user),
             refreshToken: await generateRefreshToken(email, id_user)
         }
-        res.cookie('token', data.token, { maxAge: 600000, httpOnly: true, domain : "herokuapp.com", sameSite  :"none", Secure})
+        res.cookie('token', data.token, { maxAge: 600000, httpOnly: true, credentials: true, sameSite: none})
         response(res, data, 200, 'LOGIN SUCCESS')
     } catch (error) {
         next(createError.InternalServerError())

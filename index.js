@@ -14,9 +14,7 @@ const profileRouter = require('./src/route/profileRouter')
 app.use(cookieParser())
 app.use(
     cors({
-        credentials: true,
-        origin : "https://mamarecipe.herokuapp.com",
-        sameSite: none,
+        origin : "https://mamarecipe.herokuapp.com"
     })
 )
 app.use(express.json())
