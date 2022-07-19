@@ -36,7 +36,7 @@ module.exports.getRecipe = async (req, res, next) => {
             const search = req.query.search || undefined
             const orderby = req.query.sortby || "id"
             const order = req.query.sort || "ASC"
-            const limit = +req.query.limit || 5
+            const limit = +req.query.limit || 4
             const page = +req.query.page || 1
             const offset = (page - 1) * limit
             const { rows : [{ total }]} = await countData(search)

@@ -1,8 +1,9 @@
 const express = require('express')
-const { getProfie } = require('../controller/profileController')
+const { getProfie, getRecipebyProfile } = require('../controller/profileController')
 const router = express.Router()
 
 router
     .get('/', getProfie)
+    .get('/recipes', getRecipebyProfile)
 
 module.exports = router

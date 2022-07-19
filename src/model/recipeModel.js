@@ -26,5 +26,9 @@ const updateRecipe = ({id, title, image, ingredient, video, id_user}) => {
 const deleteRecipe = (id) => {
     return pool.query(`DELETE FROM recipes WHERE id = $1`,[id])
 }
+const getRecipeUser = (id) => {
+    console.log('searching Recipe from id')
+    return pool.query(`SELECT * FROM recipes WHERE id_user = $1`,[id])
+}
 
-module.exports = { addRecipe, getRecipeDetail , getRecipe , countData , updateRecipe, deleteRecipe}
+module.exports = { addRecipe, getRecipeDetail , getRecipe , countData , updateRecipe, deleteRecipe, getRecipeUser}
