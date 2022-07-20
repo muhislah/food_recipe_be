@@ -4,6 +4,7 @@ const createError = require('http-errors')
 
 module.exports.auth = async (req, res, next) => {
     try {
+        console.log(req.headers)
         if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
             let token =  req.headers.authorization.split(" ")[1]
             console.log(token)
