@@ -4,9 +4,8 @@ const createError = require('http-errors')
 
 module.exports.auth = async (req, res, next) => {
     try {
-        if (req.cookies){
-            const token = req.cookies.token
-            console.log('this is token = '+token)
+        if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+            let token =  req.headers.authorization.split(" ")[1]
             const payload = await verifyJWT(token)
             req.payload = payload
             next()
@@ -14,7 +13,6 @@ module.exports.auth = async (req, res, next) => {
             response(res, [] , 200, "SERVER NEED TOKEN")
         }
     } catch (error) {
-        console.log(error)
         if(error && error.name === 'JsonWebTokenError'){
             next(createError(400, 'token invalid'))
         }else if(error && error.name === 'TokenExpiredError'){
@@ -23,5 +21,25 @@ module.exports.auth = async (req, res, next) => {
             next(createError(400, 'Token not active'))
         }
     }
+    // try {
+    //     if (req.cookies){
+    //         const token = req.cookies.token
+    //         console.log('this is token = '+token)
+    //         const payload = await verifyJWT(token)
+    //         req.payload = payload
+    //         next()
+    //     }else {
+    //         response(res, [] , 200, "SERVER NEED TOKEN")
+    //     }
+    // } catch (error) {
+    //     console.log(error)
+    //     if(error && error.name === 'JsonWebTokenError'){
+    //         next(createError(400, 'token invalid'))
+    //     }else if(error && error.name === 'TokenExpiredError'){
+    //         next(createError(400, 'token expired'))
+    //     }else{
+    //         next(createError(400, 'Token not active'))
+    //     }
+    // }
     
 }
