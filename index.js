@@ -15,7 +15,7 @@ app.use(cookieParser())
 app.use(
     cors({
         credentials : true,
-        origin : ["https://mamarecipe.herokuapp.com", "http://localhost:3000", "https://https://foodrecipefe.vercel.app/"]
+        origin : ["https://mamarecipe.herokuapp.com", "http://localhost:3000", "https://foodrecipefe.vercel.app"]
     })
 )
 app.use(express.json())
