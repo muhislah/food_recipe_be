@@ -6,8 +6,9 @@ const { getRecipeUser } = require('../model/recipeModel');
 
 module.exports.getProfie = async (req, res, next) => {
     try {
-        const { token } = req.cookies
-        const payload = await verifyJWT(token)
+        // const { token } = req.cookies
+        // const payload = await verifyJWT(token)
+        const payload = req.payload
         const { rows : [data]}= await getProfile(payload)
         await delete data['password']
         return response(res, data, 200, "get profile success")
@@ -17,8 +18,9 @@ module.exports.getProfie = async (req, res, next) => {
 }
 module.exports.getRecipebyProfile = async (req, res, next) => {
     try {
-        const { token } = req.cookies
-        const payload = await verifyJWT(token)
+        // const { token } = req.cookies
+        // const payload = await verifyJWT(token)
+        const payload = req.payload
         const { rows : [data]}= await getProfile(payload)
         const { rows } = await getRecipeUser(data.id)
         return response(res, rows , 200, "get profile success")
