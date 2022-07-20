@@ -6,7 +6,9 @@ module.exports.auth = async (req, res, next) => {
     try {
         if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
             let token =  req.headers.authorization.split(" ")[1]
+            console.log(token)
             const payload = await verifyJWT(token)
+            console.log(payload)
             req.payload = payload
             next()
         }else {
