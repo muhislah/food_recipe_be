@@ -34,7 +34,7 @@
 ## About The Project
 
 
-Mama Recipe Rest API is server api that used in [mamarecipe](https://foodrecipefe.vercel.app/) aplication. This server manage all function and endpoint in mamarecipe app such as create, add , update and delete recipe. Authentication about login, register and getting profile info.
+Mama Recipe Rest API is server api that used in [`mamarecipe aplication`](https://foodrecipefe.vercel.app/) . This server manage all function and endpoint in mamarecipe app such as create, add , update and delete recipe. Authentication about login, register and getting profile info.
 
 
 ### Built With
@@ -93,6 +93,7 @@ Contributions are what make the open source community such an amazing place to b
 ## Related Project
 * [`Mama Recipe Demo`](https://foodrecipefe.vercel.app/)
 * [`Mama Recipe Rest API`](https://food-recipe-be.herokuapp.com)
+* [`Mama Recipe Frontend Repository`](https://github.com/muhislah/foodrecipefe.git)
 
 
 <!-- CONTACT -->
