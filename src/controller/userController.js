@@ -21,11 +21,11 @@ module.exports.registerUser = async (req, res, next) => {
         user.phone = phone
         const { rowCount } = await searchUser(email)
         if (rowCount) {
-            return response(res, [], 500, 'USER HAS BEEN REGISTERED')
+            return response(res, [], 200, 'USER HAS BEEN REGISTERED')
         }
         const { rowCount: register } = await registerUser(user)
         if (!register) {
-            return response(res, [], 300, 'REGISTER FAILED')
+            return response(res, [], 200, 'REGISTER FAILED')
         }
         response(res, [], 200, "REGISTER SUCCESS")
     } catch (error) {
